@@ -1,0 +1,3 @@
+[submodule "Fullstack-Node-React-Archetype"]
+	path = Fullstack-Node-React-Archetype
+	url = https://github.com/rfcabal/Fullstack-Node-React-Archetype.git

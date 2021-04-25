@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "files": [
+    "Fullstack-Node-React-Archetype"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/rfcabal/generator-react-fullstack/issues"
   },
-  "homepage": "https://github.com/rfcabal/generator-react-fullstack#readme"
+  "homepage": "https://github.com/rfcabal/generator-react-fullstack#readme",
+  "dependencies": {
+    "yeoman-generator": "^5.2.0"
+  }
 }
