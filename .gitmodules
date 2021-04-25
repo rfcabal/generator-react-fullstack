@@ -1,4 +1,4 @@
-[submodule "Fullstack-Node-React-Archetype"]
-	path = generators/Fullstack-Node-React-Archetype
+[submodule "react-fullstack"]
+	path = generators/react-fullstack
 	url = https://github.com/rfcabal/Fullstack-Node-React-Archetype.git
 	branch = master
