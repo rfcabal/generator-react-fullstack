@@ -65,7 +65,7 @@ module.exports = class extends Generator {
     // TODO: how do I insert messages?
     this.log('You installation was succesfully completed');
     // TODO: this dont want to work
-    // this.yarnInstall('./package.json');
-    this.npmInstall('package.json');
+    this.yarnInstall('package.json');
+    // this.npmInstall('package.json');
   }
 };
