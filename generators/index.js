@@ -61,46 +61,11 @@ module.exports = class extends Generator {
       this.destinationRoot(this.destinationPath(this.props.localName));
     }
 
-    const readmeTpl = _.template(this.fs.read(this.templatePath('README.md')));
-
-    this.composeWith(require.resolve('generator-node/generators/app'), {
-      boilerplate: false,
-      name: this.props.name,
-      projectRoot: 'generators',
-      skipInstall: this.options.skipInstall,
-      readme: readmeTpl({
-        generatorName: this.props.name,
-        yoName: this.props.name.replace('generator-', '')
-      })
-    });
-
-  }
-
-  writing() {
-    const pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
-    const generatorGeneratorPkg = require('../package.json');
-
-    extend(pkg, {
-      dependencies: {
-        'yeoman-generator': generatorGeneratorPkg.dependencies['yeoman-generator'],
-        chalk: generatorGeneratorPkg.dependencies.chalk,
-        yosay: generatorGeneratorPkg.dependencies.yosay
-      },
-      devDependencies: {
-        'yeoman-test': generatorGeneratorPkg.devDependencies['yeoman-test'],
-        'yeoman-assert': generatorGeneratorPkg.devDependencies['yeoman-assert']
-      },
-      jest: {
-        testPathIgnorePatterns: ['templates']
-      }
-    });
-    pkg.keywords = pkg.keywords || [];
-    pkg.keywords.push('yeoman-generator');
-
-    this.fs.writeJSON(this.destinationPath('package.json'), pkg);
-  }
-
-  conflicts() {
-    this.fs.append(this.destinationPath('.eslintignore'), '**/templates\n');
+    this.fs.copy(this.templatePath('react-fullstack/**'), this.destinationPath('./'));
+    // TODO: how do I insert messages?
+    this.log('You installation was succesfully completed');
+    // TODO: this dont want to work
+    // this.yarnInstall('./package.json');
+    this.npmInstall('package.json');
   }
 };

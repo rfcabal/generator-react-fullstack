@@ -2,12 +2,21 @@
   "name": "generator-react-fullstack",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
   "files": [
-    "generators"
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "inception",
+    "init",
+    "create"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "pretest": "eslint . --fix",
+    "prepublishOnly": "npm audit"
+  },
+  "engines": {
+    "node": ">=10"
   },
   "repository": {
     "type": "git",
@@ -23,6 +32,55 @@
   },
   "homepage": "https://github.com/rfcabal/generator-react-fullstack#readme",
   "dependencies": {
-    "yeoman-generator": "^5.2.0"
+    "chalk": "^2.1.0",
+    "deep-extend": "^0.6.0",
+    "generator-node": "^2.3.0",
+    "inquirer-npm-name": "^4.0.0",
+    "lint-staged": "^7.2.2",
+    "lodash": "^4.17.4",
+    "mkdirp": "^1.0.4",
+    "superb": "^4.0.0",
+    "yeoman-generator": "^3.1.1",
+    "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.0",
+    "eslint": "^5.3.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-xo-space": "^0.20.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "prettier": "^1.19.1",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.7.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo-space/esnext",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "templates"
+    ]
   }
 }
